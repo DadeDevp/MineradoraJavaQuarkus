@@ -1,0 +1,44 @@
+-> CLOUD FIRST
+	Criar as apis preparadas para execucao em cloud
+	
+-> Background das Equipes de Desenvolvimento
+
+-> Custos
+
+	Java tende a consumir mais recursos CPU e RAM e que em cloud isso tende a aumentar os custos.
+	
+-> Resiliencia da Aplicacao
+
+	Esta aplicacao tende a ser usada em algum momento a médio e longo prazo, durante 24 horas por dia. É necessário que ela possa ter
+	escalabilidade e alta disponibilidade
+	
+PROPOSTA DE ARQUITETURA
+
+	-> Desenvolvida em Quarkus Framework
+	-> Rastreabilidade de Microserviços com Jaeger 
+	-> Segurança e identificaçao com KeyCloak e Json Web Token (JWT)
+	KeyCLoak é um servidor de identificaçao do user
+	-> Banco de dados Postgre
+	
+	Testar: 
+	-> Postman
+	-> OpenAPI + Swagger (Servir como clients)
+	-> Fazer requisicoes HTTP para reports
+	-> Requisicoes HTTP para propostas
+	
+	1 camada: Microserviço Gateway / Backend For FrontEnd
+	-> Gateway é a linha de frente, ele esconde as apis rest reais que tem acesso aos bancos de dados
+		Ele recebe todas as requisicoes
+	-> Reconhecer se o user está autenticado
+	-> Backend For Frontend: Essas informacoes (Relatorios/PROPOSTAs) podem estar disponiveis em frontends
+	
+	1 Microservico de Report que gera relatorios csv
+	
+	1 Microservico Rest para gerar propostas, quando a proposta é criada, é salva no banco de dados e enviado a um topico do kafka
+	que é monitorado pelo microservico dos reports que gera um relatorio novo e é salvo no banco de dados dos relatorios 
+	
+	1 Microservico de Cotacao verifica em tempo real a comparacao das moedas atraves de uma api externa
+	envia uma cotacao atual para dentro de um topico do apache kafka, o microservico de report le a mensagem e refaz os calculos
+	
+	Jaeger é inserido em cada microserviço (), fazendo tracing (rastreamento), mostrar uma tela quais sao os endpoints que esta entrando
+	a informacao e para onde está indo. Verificar a lentidao

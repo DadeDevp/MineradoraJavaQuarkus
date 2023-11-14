@@ -1,0 +1,34 @@
+PROJETO BR MINERADORA:
+
+		Criar uma POC (Prova de conceito) de uuma api que permita receber propostas de compra de clientes,
+		analisar o cambio do par de moedas Real brasileiro em comparacao com o dólar americano e criar
+		a partir disso Oportunidades de venda do minério.
+		
+		Essas oprtunidades de venda devem ser acessadas diretamente via API Rest e também devem gerar relatórios
+		no formato CSV para análise Operadores do negócios
+		
+
+FLUXO BÁSICO:
+	
+	1 -> Acompanhamento da cotacao do dólar americano. Se dólar estiver valorizando e houver
+	   sequencia de valorizacao de moeda americana, evnia esta informacao atualizada para 
+	   o banco de dados e considera esse valor atual do dólar na criaçao de uma nova proposta
+	   
+	2 -> Entrada de novas propostas de compra por parte dos clientes.
+	     A proposta deve ter os seguintes dados:
+		   Nome da empresa Cliente
+		   Valor oferecido por tonelada de minério
+		   Quantas toneladas
+		   Pais de origem
+		   Validade da proposta
+		   Data de criacao da proposta
+
+		2.1 -> Regras sobre as propostas
+			Usuarios do tipo cliente podem inserir novas propostas no sistema
+			Usuarios do tipo operador pode consultar detalhes da proposta, mas nao pode deletar propostas
+			Usuarios do tipo gerente pode consultar e deletar propostas
+			
+	3 -> Com as informacoes de novas propostas e do cambio atual, sao criadas oportunidades de venda que ficam
+		disponiveis aos operadores da BR Mineradora por formato JSON ou via arquivos CSV
+	   
+	
