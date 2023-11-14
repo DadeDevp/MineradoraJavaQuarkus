@@ -1,0 +1,15 @@
+Pacotes:
+	client: Contem a classe que vai comunicar com a api externa que retorna a comparacao do dolar com o real brasileiro
+	
+	dto: Contem os dto (Data transfer object) classes que sao criadas para referenciar as entities, objetos usados para trafegar
+	
+	entity: sao as classes para referenciar no banco de dados
+	
+	message: classe relacionada ao apache kafka
+	
+	repository: classe relacionado a manipulacao de informacoes no banco de dados (buscar, inserir deletar infos no banco)
+	
+	scheduler: classe para executar um código em um tempo especifico
+	
+	service: a classe onde ficam as regras de negócios
+	
