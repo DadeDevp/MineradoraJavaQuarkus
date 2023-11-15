@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "quotation")
-@Data
+@Data //Gera os getters, setters, hashcode e equals
 @NoArgsConstructor
 public class QuotationEntity {
 
