@@ -1,0 +1,9 @@
+#Download da imagem
+docker pull postgres
+
+#Subir um container com a imagem do Postgres
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=1234 postgres
+	
+	-p portaSistemaOperacional:postaRedeDocker
+	-e definicao da password
+	postgres é o user
