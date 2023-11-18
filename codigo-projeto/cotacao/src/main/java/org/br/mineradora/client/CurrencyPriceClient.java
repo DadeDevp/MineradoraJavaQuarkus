@@ -10,16 +10,17 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 
 @Path("/last")
-@RegisterRestClient
+@RegisterRestClient /*(baseUri = "https://economia.awesomeapi.com.br") */
 @ApplicationScoped
-public interface
-CurrencyPriceClient {
+public interface CurrencyPriceClient {
 
     @GET
     @Path("/{pair}")
     CurrencyPriceDTO getPriceByPair(@PathParam("pair") String pair);
 
 }
+
+
 
 /*
 Annotations de Classe:

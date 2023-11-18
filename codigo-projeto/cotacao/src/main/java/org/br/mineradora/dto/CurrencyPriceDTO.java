@@ -3,11 +3,13 @@ package org.br.mineradora.dto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.extern.jackson.Jacksonized;
+import lombok.NoArgsConstructor;
+//import lombok.extern.jackson.Jacksonized;
 
-@Jacksonized
+
+//@Jacksonized
 @Data
-@Builder
+@NoArgsConstructor
 @AllArgsConstructor
 
 public class CurrencyPriceDTO {
