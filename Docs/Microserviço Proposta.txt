@@ -1,0 +1,4 @@
+Dependencias: code.quarkus.io
+	Hibernate ORM with Panache
+	JDBC Driver - PostgreSQL
+	RESTEasy Reactive Jackson
