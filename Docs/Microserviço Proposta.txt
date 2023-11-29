@@ -1,4 +1,26 @@
-Dependencias: code.quarkus.io
+Dependencias: 
+	
+	code.quarkus.io
 	Hibernate ORM with Panache
 	JDBC Driver - PostgreSQL
 	RESTEasy Reactive Jackson
+	
+Packages
+
+	-> controller: Criaçao as endpoints, recebem as requisicoes http
+	
+	-> dto: Data Transfer object, criar os objetos que representam os objetos json
+	
+	-> entity: Classes que representam as tabelas do banco de dados
+	
+	-> message: Kafka message, quando receber uma nova proposta, vamos salvá-la no DB e enviar uma messagem para outro microserviço através Apache Kafka
+	
+	-> repository: Criar as classes repositories, para gerar os métodos para facilitar a manipulacao de dados no Banco de Dados (find, persistence ...)
+	
+	-> service: Regras de negócio os requisitos funcionais
+	
+
+Outras infos:
+
+	-> Na proposta o cliente tem que falar qual o preço por tonelada e quantas toneladas ele está disposto a pagar
+	
