@@ -1,5 +1,6 @@
 package org.br.mineradora.service;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import org.br.mineradora.dto.ProposalDTO;
@@ -10,6 +11,7 @@ import org.br.mineradora.repository.ProposalRepository;
 
 import java.util.Date;
 
+@ApplicationScoped
 public class ProposalServiceImpl implements ProposalService {
 
     @Inject
