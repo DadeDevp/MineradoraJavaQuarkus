@@ -1,5 +1,6 @@
 package org.br.mineradora.service;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.br.mineradora.dto.OpportunityDTO;
 import org.br.mineradora.dto.ProposalDTO;
@@ -16,6 +17,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+@ApplicationScoped
 public class OpportunityServiceImpl implements OpportunityService {
 
     @Inject
