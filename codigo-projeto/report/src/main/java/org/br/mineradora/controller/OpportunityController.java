@@ -1,38 +1,34 @@
 package org.br.mineradora.controller;
 
+import io.quarkus.security.Authenticated;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.ServerErrorException;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
+import org.br.mineradora.dto.OpportunityDTO;
 import org.br.mineradora.service.OpportunityService;
+import org.eclipse.microprofile.jwt.JsonWebToken;
 
-import java.util.Date;
+
+import java.util.List;
 
 @Path("/api/opportunity")
+@Authenticated
 public class OpportunityController {
+
+    @Inject
+    JsonWebToken jsonWebToken;
 
     @Inject
     OpportunityService opportunityService;
 
     @GET
-    @Path("/report")
-    @Produces(MediaType.APPLICATION_OCTET_STREAM)
-    public Response generateReport() {
+    @Path("/data")
+    @RolesAllowed({"user", "manager"})
+    public List<OpportunityDTO> generateReport(){
 
-        try {
-            return Response.ok(opportunityService.generateCSVOpportunityReport(),
-                            MediaType.APPLICATION_OCTET_STREAM)
-                    .header("content-disposition",
-                            "attachment; filename =" + new Date() + "--oportunidades-venda.csv")
-                    .build();
-
-        } catch (ServerErrorException errorException) {
-            return Response.serverError().build();
-        }
+        return opportunityService.generateOpportunityData();
     }
 }
 
-//MediaType.APPLICATION_OCTET_STREAM é o tipo de dado usado para gerar CSVs
+//Posso retornar um objeto que poderá ser usado como CSV ou JSON
