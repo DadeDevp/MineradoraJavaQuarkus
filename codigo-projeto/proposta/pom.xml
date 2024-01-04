@@ -35,6 +35,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.eclipse.microprofile.jwt</groupId>
+      <artifactId>microprofile-jwt-auth-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-oidc-token-propagation-reactive</artifactId>
     </dependency>

@@ -10,7 +10,7 @@ public interface ProposalService {
 
     ProposalDetailsDTO getProposalDetailsById(@PathParam("id") long proposalId);
 
-    Response createNewProposal(ProposalDetailsDTO proposalDetailsDTO);
+    Response createProposal(ProposalDetailsDTO proposalDetailsDTO);
 
     Response removeProposal(long id);
 }

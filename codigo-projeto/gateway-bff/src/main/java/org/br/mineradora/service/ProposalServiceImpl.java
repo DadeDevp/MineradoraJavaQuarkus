@@ -20,8 +20,8 @@ public class ProposalServiceImpl implements  ProposalService{
     }
 
     @Override
-    public Response createNewProposal(ProposalDetailsDTO proposalDetailsDTO) {
-        return proposalRestClient.createProposal(proposalDetailsDTO);
+    public Response createProposal(ProposalDetailsDTO proposalDetails) {
+        return proposalRestClient.createProposal(proposalDetails);
     }
 
     @Override

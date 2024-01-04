@@ -35,9 +35,9 @@ public class ProposalController {
     @RolesAllowed("proposal-customer")
     public Response createNewProposal(ProposalDetailsDTO proposalDetails){
 
-        int proposalRequestStatus = proposalService.createNewProposal(proposalDetails).getStatus();
+        int proposalRequestStatus = proposalService.createProposal(proposalDetails).getStatus();
 
-        if(proposalRequestStatus > 199 || proposalRequestStatus < 205){
+        if(proposalRequestStatus > 199 && proposalRequestStatus < 205){
             return Response.ok().build();
         } else {
             return Response.status(proposalRequestStatus).build();
@@ -51,7 +51,7 @@ public class ProposalController {
 
         int proposalRequestStatus = proposalService.removeProposal(id).getStatus();
 
-        if(proposalRequestStatus > 199 || proposalRequestStatus < 205){
+        if(proposalRequestStatus > 199 && proposalRequestStatus < 205){
             return Response.ok().build();
         } else {
             return Response.status(proposalRequestStatus).build();

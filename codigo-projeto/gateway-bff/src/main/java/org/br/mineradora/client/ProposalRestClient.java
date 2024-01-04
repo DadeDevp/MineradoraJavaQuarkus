@@ -12,9 +12,9 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 @Path("/api/proposal")
 @RegisterRestClient
-@RegisterProvider(value = AccessTokenRequestReactiveFilter.class)
+@RegisterProvider(AccessTokenRequestReactiveFilter.class)
 @ApplicationScoped
-@RegisterClientHeaders
+//@RegisterClientHeaders
 public interface ProposalRestClient {
 
     @GET
